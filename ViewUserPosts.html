@@ -1,0 +1,30 @@
+<html>
+<body>
+<form action="ViewUserPosts.php" method="post">
+    <p>
+        UserName:
+    </p>
+    <select name="user">
+    <?php
+$user_id = $_POST['select'];
+$mysqli =new mysqli("mysql.eecs.ku.edu\", \"q527d476\", \"aafei4ah\", \"q527d476");
+$query="SELECT * FROM Posts WHERE author_id= '$user_id'";
+if ($mysqli->connect_errno)
+    {
+    die("Connect failed: %s\n". $mysqli->connect_error);
+    }
+    if($result = $mysqli->query($query)){
+    while($row = $result->fetch_assoc()){
+    $user_id=$row["user_id"];
+    echo "<option value='$user_id'>" . $user_id. "</option>";
+    echo "<br>";
+    }
+    }
+    $result->free();
+    $mysqli->close();
+    ?>
+    </select>
+    <button>Submit</button>
+</form>
+</body>
+</html>
