@@ -1,7 +1,7 @@
 <?php
 $post_id=$_POST['del'];
 $final= implode(",",$post_id);
-$mysqli =new mysqli("mysql.eecs.ku.edu\", \"q527d476\", \"aafei4ah\", \"q527d476");
+$mysqli =new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
 if(count($post_id)==0)
 {
     echo "Choose which one to delete";

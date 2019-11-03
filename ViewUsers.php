@@ -1,5 +1,5 @@
 <?php
-$mysqli =new mysqli("mysql.eecs.ku.edu\", \"q527d476\", \"aafei4ah\", \"q527d476");
+$mysqli =new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
 $query = "SELECT user_id FROM Users WHERE user_id='$user_id'";
 if ($mysqli->connect_errno)
 {
@@ -8,7 +8,8 @@ if ($mysqli->connect_errno)
 if($result = $mysqli->query($query)){
     echo"<table border ='1'>Users<tr>";
     while($row = $result->fetch_assoc()){
-        echo "<tr>"."<td>".$row['user_id']."</td></tr>";
+        echo "<tr>";
+        echo "<td>".$row['user_id']."</td></tr>";
     }
     echo "</table>";
 }

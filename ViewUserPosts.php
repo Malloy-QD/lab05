@@ -1,6 +1,6 @@
 <?php
 $user_id = $_POST['select'];
-$mysqli =new mysqli("mysql.eecs.ku.edu\", \"q527d476\", \"aafei4ah\", \"q527d476");
+$mysqli =new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
 $query="SELECT * FROM Posts WHERE author_id= '$user_id'";
 if ($mysqli->connect_errno)
 {
