@@ -1,6 +1,6 @@
 <?php
 $mysqli =new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
-$query = "SELECT user_id FROM Users WHERE user_id='$user_id'";
+$query = "select * from Users";
 if ($mysqli->connect_errno)
 {
     die("Connect failed: %s\n". $mysqli->connect_error);

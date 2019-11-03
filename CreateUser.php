@@ -4,15 +4,14 @@ if ($mysqli->connect_errno)
 {
     die("Connect failed: %s\n". $mysqli->connect_error);
 }
-$user_id = $_POST["user_id"];
-$query = "INSERT INTO Users(user_id) VALUES ('user_id')";
+$user_id = $_POST['user_id'];
+$query = "INSERT INTO Users(user_id) VALUES ('$user_id')";
 if($user_id ==""){
     echo('Enter a valid username');
 }
 elseif($result = $mysqli->query($query)){
     echo('Successfully added a new username');
 }
-
-$result->free();
+    $result->free();
 $mysqli->close();
 ?>
