@@ -3,24 +3,23 @@
 <form action="ViewUserPosts.php" method="post">
     <?php
     $mysqli =new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
-    $user_id = $_POST['select'];
     $query="SELECT * FROM Users";
-    if ($mysqli->connect_errno)
-        {
-        die("Connect failed: %s\n". $mysqli->connect_error);
-        }
+      if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+    }
         if($result = $mysqli->query($query)){
           echo "<select name='select'>";
         while($row = $result->fetch_assoc()){
-        $user_id=$row["user_id"];
-        echo "<option value='$user_id'>" .$user_id. "</option>";
+              $user_id = $row['user_id'];
+        echo "<option value='$user_id'>$user_id</option>";
         echo "<br>";
         }
         }
         $result->free();
+        echo "</select>";
       $mysqli->close();
       ?>
-    </select>
     <button>Submit</button>
 </form>
 </body>
