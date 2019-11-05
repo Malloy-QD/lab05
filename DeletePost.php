@@ -6,9 +6,9 @@ $select=$_POST['select'];
         die("Connect failed: %s\n" . $mysqli->connect_error);
     }
     foreach($select as $delete){
-        $query = "DELETE FROM Posts WHERE post_id ='$delete'";
+        $query = "DELETE FROM Posts WHERE author_id ='$delete'";
         if($result = $mysqli->query($query)){
-            echo "Successfully deleted the post:".$delete."<br>";
+            echo "Successfully deleted the post from: $delete<br>";
         }
     }
 

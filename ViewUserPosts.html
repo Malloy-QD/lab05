@@ -2,31 +2,32 @@
 <head>View User Posts</head>
 <body>
 <form action="ViewUserPosts.php" method="post">
-    <?php
-    $mysqli = new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
+  <?php
+  $mysqli = new mysqli("mysql.eecs.ku.edu", "q527d476", "aafei4ah", "q527d476");
 
-          /* check connection */
-    if ($mysqli->connect_errno) {
-              printf("Connect failed: %s\n", $mysqli->connect_error);
-              exit();
-    }
-      $query ="select * from Users";
-    if($result = $mysqli->query($query))
-    {
-    echo "<select name='select'>";
-    while($row = $result->fetch_assoc())
-    {
-        $user_id = $row['user_id'];
-    echo "<option value='$user_id'>" .$user_id. "</option>";
-    echo "<br>";
-    }
+        /* check connection */
+  if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            exit();
+  }
+    $query ="select * from Users";
+  if($result = $mysqli->query($query))
+  {
+  echo "<select name='select'>";
+  while($row = $result->fetch_assoc())
+  {
+      $user_id = $row['user_id'];
+  echo "<option value='$user_id'>" .$user_id. "</option>";
+  }
 
-        $result->free();
-        echo "</select>";
-            }
-      $mysqli->close();
-    ?>
-    <button>Submit</button>
+      $result->free();
+      echo "</select>";
+          }
+    $mysqli->close();
+  ?>
+    <input type="submit" value="Submit">
+
 </form>
+
 </body>
 </html>
